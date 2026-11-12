@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student login | CampusCart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="auth-page">
+  <header class="topbar auth-topbar">
+    <a class="brand" href="/login"><span class="brand-mark">C</span><span>Campus<span class="brand-accent">Cart</span></span></a>
+    <a class="sell-nav" href="/register">Create account</a>
+  </header>
+  <main class="auth-main login-main">
+    <section class="auth-card">
+      <span class="eyebrow">WELCOME BACK</span>
+      <h1>Log in to CampusCart</h1>
+      <p class="auth-subtitle">Enter your student account details to continue.</p>
+      <form id="loginForm">
+        <label for="loginEmail">Email address</label>
+        <input id="loginEmail" type="email" autocomplete="email" placeholder="Enter your email address" required>
+        <label for="loginPassword">Password</label>
+        <input id="loginPassword" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+        <button class="primary-btn auth-submit" type="submit">Log in <span>↗</span></button>
+        <p id="authMessage" class="auth-message" role="status" aria-live="polite"></p>
+      </form>
+      <p class="auth-switch">New to CampusCart? <a href="/register">Create an account</a></p>
+    </section>
+    <aside class="auth-aside">
+      <span class="eyebrow">YOUR CAMPUS. YOUR MARKET.</span>
+      <h2>Your student<br><span>marketplace.</span></h2>
+      <p>Log in to explore listings, publish items for sale, and connect with your student community.</p>
+      <div class="auth-aside-mark">C<span>+</span></div>
+    </aside>
+  </main>
+  <script src="auth.js"></script>
+</body>
+</html>
