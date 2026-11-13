@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Buy, sell and reuse items within your student community.">
+  <title>CampusCart | Student Marketplace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="public/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">C</span><span>Campus<span class="brand-accent">Cart</span></span></a>
+    <nav><a href="#market">Marketplace</a><a href="#how">How it works</a></nav>
+    <div class="nav-account"><span id="navStudentName">Student</span><button id="logoutButton" class="logout-nav" type="button">Logout</button><a class="sell-nav" href="#sell">＋ Sell an item</a></div>
+  </header>
+
+  <main id="marketplacePage" hidden>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="pulse"></span> YOUR CAMPUS. YOUR MARKET.</span>
+        <h1>Good finds.<br><span>Better prices.</span></h1>
+        <p>Buy and sell pre-loved essentials with people in your student community. Give useful things a second life.</p>
+        <div class="hero-actions"><a class="primary-btn" href="#market">Explore listings <span>↗</span></a><a class="text-btn" href="#how">How it works</a></div>
+        <div class="hero-note"><span class="avatars">● ● ●</span> Made for student communities</div>
+      </div>
+      <div class="hero-art" aria-label="Illustration of a student shopping bag">
+        <div class="art-circle circle-one"></div><div class="art-circle circle-two"></div>
+        <div class="bag"><div class="bag-handle"></div><div class="bag-face">C<span>+</span></div></div>
+        <div class="floating-card card-book"><span>▤</span><small>TEXTBOOKS</small></div>
+        <div class="floating-card card-price"><small>SMART FINDS</small><strong>₦</strong></div>
+        <div class="spark spark-one">✳</div><div class="spark spark-two">✦</div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div><strong id="totalCount">0</strong><span>Listings posted</span></div>
+      <div><strong>₦</strong><span>Student-friendly prices</span></div>
+      <div><strong>↗</strong><span>Reuse more, waste less</span></div>
+    </section>
+
+    <section class="market-section" id="market">
+      <div class="section-heading">
+        <div><span class="eyebrow">THE MARKETPLACE</span><h2>Find your next <span>good deal.</span></h2><p>Browse what's available from fellow students.</p></div>
+        <a class="primary-btn compact" href="#sell">＋ Post a listing</a>
+      </div>
+      <div class="toolbar">
+        <label class="searchbox"><span>⌕</span><input id="searchInput" type="search" placeholder="Search textbooks, gadgets, essentials..."></label>
+        <select id="categoryFilter" aria-label="Filter by category"><option>All</option><option>Books</option><option>Electronics</option><option>Clothing</option><option>Hostel &amp; Home</option><option>Other</option></select>
+        <select id="statusFilter" aria-label="Filter by status"><option>Available</option><option>All</option><option>Sold</option></select>
+      </div>
+      <div id="message" class="message" role="status" aria-live="polite"></div>
+      <div id="listingGrid" class="listing-grid"><div class="loading">Loading listings...</div></div>
+      <div id="emptyState" class="empty-state" hidden><div>⌕</div><h3>No listings found</h3><p>Try another search or be the first to post this item.</p></div>
+    </section>
+
+    <section class="sell-section" id="sell">
+      <div class="sell-intro"><span class="eyebrow">GIVE IT A NEW HOME</span><h2>Got something<br>to <span>sell?</span></h2><p>Turn things you no longer need into someone else's next favourite find.</p><div class="sell-tip">✦ <span>Be clear, honest and fair with your listing details.</span></div></div>
+      <form id="listingForm" class="listing-form">
+        <div class="form-title"><div><h3 id="formHeading">Create a listing</h3><p>Fields marked * are required.</p></div><span class="form-icon">＋</span></div>
+        <input type="hidden" id="listingId">
+        <label>Item title *<input id="title" maxlength="90" required placeholder="e.g. Scientific calculator"></label>
+        <label>Description *<textarea id="description" rows="3" maxlength="500" required placeholder="Tell buyers about the item..."></textarea></label>
+        <div class="form-row">
+          <label>Price (₦) *<input id="price" type="number" min="0" step="0.01" required placeholder="15000"></label>
+          <label>Category *<select id="category" required><option value="">Choose one</option><option>Books</option><option>Electronics</option><option>Clothing</option><option>Hostel &amp; Home</option><option>Other</option></select></label>
+        </div>
+        <div class="form-row">
+          <label>Condition *<select id="condition" required><option value="">Choose one</option><option>New</option><option>Like New</option><option>Used</option></select></label>
+          <label>Seller name *<input id="seller_name" required maxlength="60" placeholder="e.g. Alex (sample)"></label>
+        </div>
+        <div class="form-group">
+    <label for="listingImage">Product Image *</label>
+    <input
+        type="file"
+        id="listingImage"
+        accept="image/*"
+        required
+    >
+    <img
+        id="imagePreview"
+        alt="Product preview"
+        hidden
+        style="max-width: 200px; margin-top: 10px;"
+    >
+</div>
+        <label>Contact information *<input id="contact_info" required maxlength="100" placeholder="Use fictional contact details for assessment"></label>
+        <div class="form-actions"><button class="primary-btn submit-btn" type="submit" id="submitBtn">Publish listing <span>↗</span></button><button class="cancel-btn" type="button" id="cancelEdit" hidden>Cancel edit</button></div>
+        <p class="form-footnote">Assessment demo: use fictional seller names and contact details. No payments are processed here.</p>
+      </form>
+    </section>
+
+    <section class="how-section" id="how"><span class="eyebrow">SIMPLE BY DESIGN</span><h2>How CampusCart works</h2><div class="steps"><article><span>01</span><h3>Find a good deal</h3><p>Browse available items and search by name or category.</p></article><article><span>02</span><h3>Post what you have</h3><p>Add the details, price and condition of an item you want to sell.</p></article><article><span>03</span><h3>Connect directly</h3><p>Use the seller's sample contact information to arrange the next step.</p></article></div></section>
+  </main>
+  <footer><a class="brand" href="#"><span class="brand-mark">C</span><span>Campus<span class="brand-accent">Cart</span></span></a><span>Buy. Sell. Reuse. Keep it on campus.</span><span>Student project demo</span></footer>
+  <script src="public/app.js"></script>
+</body>
+</html>
